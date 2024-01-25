@@ -1,0 +1,82 @@
+body{
+     display:flex;
+     min-height:100vh;  /*means that the minimum height of the element is 100% of the viewport height   */
+     justify-content:center;/*means that the element’s content is aligned horizontally to the center of the element. This property only works if the element has a display value of flex or grid*/
+     align-items:center;
+     background:"000";
+     color:#fff;
+     gap:5vw;   /* viewport width*/
+     
+
+}
+
+.card2,
+.card1{
+    display:grid;
+    place-items:center;
+    position:relative;
+    height:500px;
+    width:350px;
+    background:#222;
+    border-radius: 10px;/* round the corner in elements*/
+    cursor:pointer;
+
+
+}
+span{
+    color:rgba(254,254,254,0,1);
+    font-size:20px;
+    z-index:  10;
+}
+.card1::before{
+    position:absolute;
+    content:'';
+    height:500px;
+    width:350px;
+    background:tomato;
+    border-radius: 15px;
+    z-index:-1;
+    transition:0.3s;
+    animation :animate 2s linear infinite;
+}
+.card1:hover::before{
+    height:512px;
+    width:362px;
+
+}
+@keyframes animate {
+    50%{
+        filter:hue-rotate(350deg);
+    }
+    
+}
+.card2{
+     overflow:hidden;
+}
+.card2::before{
+     position:absolute;
+     content:'';
+     width:50%;
+     height:100%;
+     background:#fff;
+     transform: rotate(45deg);
+}
+.card2.card2:hover::before{
+     animation: animate2 2s linear infinite;
+}
+@keyframes animate2{
+     from{
+         transform:rotate(0deg);
+
+     }
+     to{
+        transform: rotate(360deg);
+     }
+}
+.card2::after{
+    position:absolute;
+    content: '';
+    inset:10px;
+    background:#222;
+    border-radius: 9px;
+}
